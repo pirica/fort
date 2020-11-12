@@ -11,6 +11,17 @@
  * limitations under the License.
  */
 
+const fetcher = fetch;
+fetch = (...args) => {
+    const response = fetcher(...args).catch((e) => {
+        system.menu.message(e.name, `${e.message} (${args[0]})`, 'reload', false, () => {
+            window.location = '';
+        });
+        throw e;
+    });
+    return response;
+};
+
 class UI {
     constructor(Pages) {
         this.pages = Pages;
@@ -252,9 +263,11 @@ class Menu {
         return this;
     }
 
-    message(title, message, button, disabled=false) {
+    message(title, message, button, disabled=false, click) {
         if($('#inform')[0]) $('#inform')[0].remove();
         $('body').children().first().before(`<div id="inform"><div class="fort-button"${disabled ? ' disabled' : ''}><div>${button}</div></div><div class="text"><div>${title}</div><div>${message}</div></div></div>`);
+        const element = $('body').children().first();
+        if(click) element.click(click);
         return $('body').children().first();
     }
 }
@@ -644,6 +657,7 @@ $(document).ready(async () => {
     const accountsNames = await (await fetch(`https://api.blobry.com/repl/accounts`, {
         credentials: 'include'
     }).catch((e) => {
+        system.menu.message('CRASHED', 'error goes here', 'reload');
         throw e;
     })).json();
     if(!Cookies.get('understand')) {
