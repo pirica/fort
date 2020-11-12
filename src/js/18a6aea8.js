@@ -17,6 +17,7 @@ fetch = (...args) => {
         system.menu.message(e.name, `${e.message} (${args[0]})`, 'reload', false, () => {
             window.location = '';
         });
+        console.log(e);
         throw e;
     });
     return response;
