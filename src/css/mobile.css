@@ -1,0 +1,69 @@
+.menu {
+    width: 100%;
+    height: 100%;
+}
+
+.cosmetic {
+    font-size: 293px;
+    text-align: center;
+}
+
+.cosmetic > div[id*="Save"] {
+    top: 82%;
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    font-size: 90px !important;
+}
+
+.cosmetic > div[id*="close"] {
+    height: 100%;
+    top: 94%;
+    position: absolute !important;
+    width: 100%;
+    left: -28px;
+    font-size: 90px !important;
+}
+
+#cosmetics {
+    width: 100% !important;
+    height: 726px !important;
+}
+
+.username {
+    font-size: 171px !important;
+    top: -144px;
+}
+
+.icon {
+    width: 300px !important;
+    height: 300px !important;
+}
+
+.icon img:nth-of-type(1) {
+    width: 300px !important;
+    height: 300px !important;
+}
+
+.icon div:nth-of-type(1) {
+    font-size: 60px;
+    width: 100%;
+    height: 100%;
+    left: 15%;
+}
+
+#cosmetics > div > div:nth-of-type(1) {
+    width: 250px !important;
+    height: 250px !important;
+    top: 51px !important;
+}
+
+#cosmetics > div > div:nth-of-type(1) > img {
+    width: 250px;
+    height: 250px;
+}
+
+#cosmetics > div > div:nth-of-type(2) {
+    left: 300px !important;
+    bottom: 103px !important;
+}
