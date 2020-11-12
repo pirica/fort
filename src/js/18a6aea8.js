@@ -251,6 +251,12 @@ class Menu {
         }
         return this;
     }
+
+    message(title, message, button, disabled=false) {
+        if($('#inform')[0]) $('#inform')[0].remove();
+        $('body').children().first().before(`<div id="inform"><div class="fort-button"${disabled ? ' disabled' : ''}><div>${button}</div></div><div class="text"><div>${title}</div><div>${message}</div></div></div>`);
+        return $('body').children().first();
+    }
 }
 
 class System {
@@ -646,6 +652,9 @@ $(document).ready(async () => {
     }
     Cookies.set('understand', true);
     $('.understand').fadeOut(300);
+    if(accountsNames.length === 0) {
+        // return;
+    }
     $('.loading')[0].innerHTML = '<div class="accounts-container"><div class="accounts"></div></div>';
 
     const cids = [
