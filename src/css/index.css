@@ -890,8 +890,8 @@ textarea {
     -webkit-transform: scaleX(-1);
     transform: skew(88deg, 14deg) scaleX(-1) rotate3d(1, 1, 1, 5735deg);
     position: relative;
-    left: -162%;
-    top: -18%;
+    left: -8690px;
+    top: -390px;
 }
 
 .line:nth-of-type(2) {

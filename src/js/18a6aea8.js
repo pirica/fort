@@ -281,7 +281,8 @@ class Menu {
         $('body').children().first().before(`<div id="inform"><div class="fort-button"${disabled ? ' disabled' : ''}><div>${button}</div></div><div class="text"><div>${title}</div><div>${message}</div></div></div>`);
         const element = $('body').children().first();
         if(click) element.click(click);
-        $('.loading').show().html(`<div class="line"></div><div class="line"></div>`);
+        $('.loading').show().html(`<div class="line"></div>`);
+        $('html').css('overflow', 'hidden');
         return $('body').children().first();
     }
 }
