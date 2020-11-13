@@ -374,12 +374,7 @@ class System {
     text-shadow: none;
 ">adsaads</div></div><div class="icon" style="background: #4F6096;"><svg id="blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="">
 <path fill="#7289DA" d="M44.6,-76.2C58.4,-69.2,70.7,-58.6,78.5,-45.3C86.3,-32,89.6,-16,89.2,-0.2C88.8,15.5,84.7,31,77.2,44.7C69.6,58.5,58.5,70.4,45.1,77.4C31.7,84.4,15.8,86.6,-0.4,87.3C-16.7,88,-33.3,87.3,-46.7,80.3C-60.1,73.2,-70.3,59.8,-77.3,45.4C-84.4,31,-88.3,15.5,-88.2,0C-88.2,-15.4,-84.1,-30.8,-76.7,-44.6C-69.3,-58.4,-58.5,-70.5,-45.1,-77.8C-31.8,-85.2,-15.9,-87.7,-0.3,-87.2C15.4,-86.8,30.7,-83.3,44.6,-76.2Z" transform="translate(100 100)"></path>
-</svg><div style="color: #5B6EAD;background: #5B6EAD;text-shadow: none;height: fit-content;">ss</div></div></div><div><div></div><svg id="blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width: 350px;">
-
-<defs>
-  <clipPath id="blob2"><path fill="#7289DA" d="M44.6,-76.2C58.4,-69.2,70.7,-58.6,78.5,-45.3C86.3,-32,89.6,-16,89.2,-0.2C88.8,15.5,84.7,31,77.2,44.7C69.6,58.5,58.5,70.4,45.1,77.4C31.7,84.4,15.8,86.6,-0.4,87.3C-16.7,88,-33.3,87.3,-46.7,80.3C-60.1,73.2,-70.3,59.8,-77.3,45.4C-84.4,31,-88.3,15.5,-88.2,0C-88.2,-15.4,-84.1,-30.8,-76.7,-44.6C-69.3,-58.4,-58.5,-70.5,-45.1,-77.8C-31.8,-85.2,-15.9,-87.7,-0.3,-87.2C15.4,-86.8,30.7,-83.3,44.6,-76.2Z" style="z-index: 100;" transform="translate(100 100)" id="s"></path></clipPath></defs>  
-<rect fill="#7289DA" clip-path="url(#blob2)" x="0" height="100%"></rect><rect y="13" fill="#6175B7" width="100%" height="0px" clip-path="url(#blob2)" style="transition: 0.2s;height: 0%;" x="0"></rect></svg></div>`;
-        $('[clip-path="url(#blob2)"]').eq(1).animate({height: '100%'}, 10000);
+</svg><div style="color: #5B6EAD;background: #5B6EAD;text-shadow: none;height: fit-content;">ss</div></div></div><div></div>`;
         this.menu.setLoadingText('Logging out of last session');
         await this.logout();
         this.menu.setLoadingText('Creating new session');
