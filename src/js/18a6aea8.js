@@ -13,6 +13,8 @@
 
 const fetcher = fetch;
 fetch = (...args) => {
+    const endpoints = [{endsWith: '/api/account'}, {includes: '/api/account?displayName='}];
+    let length = endpoints.length;
     const error = (e) => {
         system.menu.message(e.name, `${e.message} (${args[0]})`, 'reload', false, () => {
             window.location = '';
@@ -20,7 +22,11 @@ fetch = (...args) => {
         throw e;
     };
     return fetcher(...args).then((r) => {
-        // if(!r.ok && args[0]) throw new Error('Failed to fetch');
+        if(!r.ok) while (length--) {
+            const e = endpoints[length];
+            const f = Object.keys(e)[0];
+            if(args[0][f](e[f])) throw new Error('Failed to fetch');
+        }
         return r;
     }).catch(error);
 };
