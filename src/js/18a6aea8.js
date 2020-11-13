@@ -20,7 +20,7 @@ fetch = (...args) => {
         throw e;
     };
     return fetcher(...args).then((r) => {
-        if(!r.ok) throw new Error('test?');
+        if(!r.ok) throw new Error('Failed to fetch');
         return r;
     }).catch(error);
 };
@@ -420,7 +420,7 @@ class System {
         this.friends = null;
         return await this.sendRequest('api/account', {
             method: "DELETE"
-        }, null, null, false);
+        }, null, true, true);
     }
 
     async createSession(displayName) {
