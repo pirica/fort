@@ -20,7 +20,7 @@ fetch = (...args) => {
         throw e;
     };
     return fetcher(...args).then((r) => {
-        if(!r.ok) throw new Error('Failed to fetch');
+        // if(!r.ok && args[0]) throw new Error('Failed to fetch');
         return r;
     }).catch(error);
 };
@@ -420,7 +420,7 @@ class System {
         this.friends = null;
         return await this.sendRequest('api/account', {
             method: "DELETE"
-        }, null, true, true);
+        });
     }
 
     async createSession(displayName) {
@@ -521,8 +521,8 @@ class System {
         });
     }
 
-    async sendRequest(path, options, isURL, cookie=true, errort) {
-        return await !errort ? fetch : fetcher(isURL ? path : `${this.url}/${path}`, {
+    async sendRequest(path, options, isURL, cookie=true) {
+        return await fetch(isURL ? path : `${this.url}/${path}`, {
             ...options,
             credentials: cookie ? 'omit' : 'include',
             headers: {
