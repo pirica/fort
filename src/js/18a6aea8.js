@@ -26,6 +26,7 @@ fetch = (...args) => {
             const e = endpoints[length];
             const f = Object.keys(e)[0];
             console.log(args[0][f](e[f]), args[0][f], args[0]);
+            if(args[0].includes('/api/account')) console.log('bruh')
             if(!args[0][f](e[f])) throw new Error('Failed to fetch');
         }
         return r;
