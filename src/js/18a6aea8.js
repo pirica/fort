@@ -30,7 +30,7 @@ fetch = (...args) => {
         throw e;
     };
     return fetcher(...args).then((r) => {
-        if(!r.ok && !checker()) throw new Error('Failed to fetch');
+        if(!r.ok && checker()) throw new Error('Failed to fetch');
         return r;
     }).catch(error);
 };
