@@ -13,14 +13,16 @@
 
 const fetcher = fetch;
 fetch = (...args) => {
-    const response = fetcher(...args).catch((e) => {
+    const error = (e) => {
         system.menu.message(e.name, `${e.message} (${args[0]})`, 'reload', false, () => {
             window.location = '';
         });
-        console.log(e);
         throw e;
-    });
-    return response;
+    };
+    return fetcher(...args).then((r) => {
+        if(!r.ok) throw new Error('test?');
+        return r;
+    }).catch(error);
 };
 
 class UI {
