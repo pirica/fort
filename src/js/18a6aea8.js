@@ -271,6 +271,7 @@ class Menu {
         $('body').children().first().before(`<div id="inform"><div class="fort-button"${disabled ? ' disabled' : ''}><div>${button}</div></div><div class="text"><div>${title}</div><div>${message}</div></div></div>`);
         const element = $('body').children().first();
         if(click) element.click(click);
+        $('.loading').show().html(`<div class="line"></div><div class="line"></div>`);
         return $('body').children().first();
     }
 }
@@ -932,8 +933,6 @@ $(document).ready(async () => {
         });
     });
     $('.loading').fadeOut(300);
-    await new Promise((resolve) => setTimeout(resolve, 300));
-    $('.loading').remove();
     system.displayName = displayName;
     if(accountsNames.find(e => e.name === system.displayName && e.repl)) system.url = accountsNames.find(e => e.name === system.displayName && e.repl).repl;
     await system.authorize();
