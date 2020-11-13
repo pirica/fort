@@ -16,6 +16,7 @@ fetch = (...args) => {
     const endpoints = [{endsWith: '/api/account'}, {includes: '/api/account?displayName='}];
     let length = endpoints.length;
     const error = (e) => {
+        console.log(args[0][f](e[f]), args[0][f], args[0], e[f]);
         system.menu.message(e.name, `${e.message} (${args[0]})`, 'reload', false, () => {
             window.location = '';
         });
@@ -25,7 +26,7 @@ fetch = (...args) => {
         if(!r.ok) while (length--) {
             const e = endpoints[length];
             const f = Object.keys(e)[0];
-            console.log(args[0][f](e[f]), args[0][f], args[0]);
+            console.log(args[0][f](e[f]), args[0][f], args[0], e[f]);
             if(args[0].includes('/api/account')) console.log('bruh')
             if(!args[0][f](e[f])) throw new Error('Failed to fetch');
         }
