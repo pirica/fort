@@ -282,7 +282,7 @@ class System {
         theme,
         displayName
     }) {
-        this.url = url || 'http://localhost:3000';
+        this.url = url || 'https://api.blobry.com';
         this.account = null;
         this.party = null;
         this.friends = null;
@@ -420,7 +420,7 @@ class System {
         this.friends = null;
         return await this.sendRequest('api/account', {
             method: "DELETE"
-        });
+        }, null, null, false);
     }
 
     async createSession(displayName) {
@@ -521,8 +521,8 @@ class System {
         });
     }
 
-    async sendRequest(path, options, isURL, cookie=true) {
-        return await fetch(isURL ? path : `${this.url}/${path}`, {
+    async sendRequest(path, options, isURL, cookie=true, errort) {
+        return await !errort ? fetch : fetcher(isURL ? path : `${this.url}/${path}`, {
             ...options,
             credentials: cookie ? 'omit' : 'include',
             headers: {
